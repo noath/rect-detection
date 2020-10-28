@@ -137,7 +137,7 @@ def draw_rectangle_contours(path_to_img, ratio, cnts, write_ar=True, output_dir=
 
     if output_dir is not None:
         fname = os.path.split(path_to_img)[-1]
-        plt.savefig(os.path.join(outpur_dir, fname))
+        plt.savefig(os.path.join(output_dir, fname))
     else:
         plt.show()
 
@@ -193,7 +193,7 @@ def detect_rectangles(
 
     if draw:
         draw_rectangle_contours(
-            path_to_img, ratio, final_cnts, write_ar=write_ar, output_dir=outpur_dir
+            path_to_img, ratio, final_cnts, write_ar=write_ar, output_dir=output_dir
         )
 
     return final_cnts
@@ -203,5 +203,5 @@ if __name__ == "__main__":
     if len(argv) != 3:
         print(f"Usage: {argv[0]} input_img_path output_dir")
         exit(0)
-    img_path, outpur_dir = argv[1:]
-    detect_rectangles(img_path, output_dir=outpur_dir)
+    img_path, output_dir = argv[1:]
+    detect_rectangles(img_path, output_dir=output_dir)
